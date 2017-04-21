@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
-      regirect_to @user
+      redirect_to @user
       return
     end
     
@@ -25,6 +25,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.requore(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
