@@ -8,7 +8,7 @@
               <img src="<%= item.image_url %>" alt="" >
             </div>
             <div class="panel-body">
-             <% if item.persisted? %>
+              <% if item.persisted? %>
                 <p class="item-title"><%= link_to item.name, item %></p>
               <% else %>
                 <p class="item-title">
@@ -16,9 +16,13 @@
                 </p>
               <% end %>
 
-              <div class="buttons text-center">  
-                <% if logged_in? %>  
+              <% if logged_in? %> 
+                <div class="buttons text-center">  
                   <%= render 'ownerships/want_button', item: item %>
+                </div>
+                <div class="buttons text-center">  
+                  <%= render 'ownerships/have_button', item: item %>
+                </div>
               <% end %>
             </div>
           </div>
