@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       return
     end
     
-    flash.now[:danger]
+    flash.now[:danger] = 'ログインに失敗しました。'
     render 'new'
   end
 
