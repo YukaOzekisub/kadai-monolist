@@ -3,6 +3,10 @@ class UsersController < ApplicationController
    
   def show
     @user = User.find(params[:id])
+    if @user != current_user
+      render 'error_page' and return
+    end
+      
     @items = @user.items.uniq
     @count_want = @user.want_items.count
     @count_have = @user.have_items.count
